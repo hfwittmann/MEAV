@@ -20,7 +20,7 @@ class mockedMemory:
         return out
     
 class mockedEnvironment:
-    def __init__(self, maxHeapSize = 7):    
+    def __init__(self, maxHeapSize = 7, numberOfHeaps = 3):    
         return None
     
     def reset(self, heaps=None, value=None):
@@ -64,7 +64,7 @@ class mockedValue:
         return winningNess
     
     
-class mockedPerfectTest:
+class mockedAccuracy:
     def __init__(self):
         
         self.positions = np.array([[1,1,1],[7,5,1],[0,1,1]])
@@ -83,9 +83,9 @@ class TestRunOnPolicy(TestCase):
     A = mockedAgent
     V = mockedValue
     
-    P = mockedPerfectTest
+    Acc = mockedAccuracy
     
-    rOP = RunOnPolicy(M, E, A, V, P)
+    rOP = RunOnPolicy(M, E, A, V, Acc)
     
     def test_basic(self):
     

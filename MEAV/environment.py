@@ -11,12 +11,27 @@ import gym_game_nim
 env = gym.make('game_nim-v0')
 
 class Environment:
-    def __init__(self, maxHeapSize = 7):
+    def __init__(self, maxHeapSize = 7, numberOfHeaps = 3):
         
         self.env = env
-        self.env.setMaxHeapSize(maxHeapSize)
+        
+        self.setMaxHeapSize(maxHeapSize = maxHeapSize)
+        self.setNumberOfHeaps(numberOfHeaps = numberOfHeaps)
         
         self.reset()
+        
+        return None
+    
+    
+    def setMaxHeapSize(self, maxHeapSize=100):
+     
+        self.env.setMaxHeapSize(maxHeapSize = maxHeapSize)
+ 
+        return None
+
+    def setNumberOfHeaps(self, numberOfHeaps = 3):
+        
+        self.env.setNumberOfHeaps(numberOfHeaps = numberOfHeaps)
         
         return None
     

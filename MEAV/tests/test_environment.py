@@ -32,7 +32,8 @@ class TestEnvironment(TestCase):
         
     def test_basic(self):
         
-        self.assertEqual(self.E.env.MaxHeapSize, 7) 
+        self.assertEqual(self.E.env.maxHeapSize, 7)
+        self.assertEqual(self.E.env.numberOfHeaps, 3)
         return None
     
     def test_reset(self):
@@ -62,6 +63,21 @@ class TestEnvironment(TestCase):
         
         
         return None
+    
+    def test_set_number_of_heaps(self):
+        
+        self.E.setNumberOfHeaps(4)
+        self.assertEqual(self.E.env.numberOfHeaps, 4, "Number of heaps should have changed")
+        
+        
+        
+    def test_set_max_heap_size(self):
+        
+        self.E.setMaxHeapSize(10)
+        self.assertEqual(self.E.env.maxHeapSize, 10, "Heap Size should have changed")
+        
+        
+        
         
 
 # for simple debugging: self = TestEnvironment() 

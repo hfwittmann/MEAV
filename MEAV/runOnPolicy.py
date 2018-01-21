@@ -11,9 +11,9 @@ import numpy as np
 
 class RunOnPolicy:
     
-    def __init__(self, Memory, Environment, Agent, Value, PerfectTest, maxHeapSize = 7):
+    def __init__(self, Memory, Environment, Agent, Value, Accuracy, maxHeapSize = 7, numberOfHeaps = 3):
         
-        self.environment = Environment(maxHeapSize=maxHeapSize)
+        self.environment = Environment(maxHeapSize=maxHeapSize,numberOfHeaps=numberOfHeaps)
         self.value = Value()
         self.value.load('cache', 'mytable-nim')
         
@@ -21,7 +21,7 @@ class RunOnPolicy:
         self.memory = Memory(capacity = 1000)
         
         # objective out of sample test
-        self.perfectTest = PerfectTest()
+        self.Accuracy = Accuracy(maxHeapSize=maxHeapSize, numberOfHeaps=numberOfHeaps)
         
         return None
     
@@ -89,9 +89,9 @@ class RunOnPolicy:
             
             tableSize = len(self.value.table)
             
-            winning_prediction = self.value.predict(self.perfectTest.positions) > 0.5
+            winning_prediction = self.value.predict(self.Accuracy.positions) > 0.5
             
-            accuracy_predictions = ( self.perfectTest.winning == winning_prediction.reshape(-1)).mean()
+            accuracy_predictions = ( self.Accuracy.winning == winning_prediction.reshape(-1)).mean()
             
             self.stats_rewards.append(totalReward)
             self.stats_difference_prob_chosen_max.append(totalDifference)

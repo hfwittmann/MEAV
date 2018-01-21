@@ -12,13 +12,13 @@ from nim_perfect_play.nim_perfect_play import findWinningMove
 
 
 
-class PerfectTest:
+class Accuracy:
     
-    def __init__(self, maxHeapSize = 7, nofPositions = 1000):
+    def __init__(self, maxHeapSize = 7, numberOfHeaps = 3,  nofPositions = 1000):
         
         # config
         maxHeapSize = maxHeapSize
-        shape = [nofPositions, 3]
+        shape = [nofPositions, numberOfHeaps]
         
         # np.random.seed(167)
         # positions

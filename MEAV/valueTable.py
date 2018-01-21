@@ -224,12 +224,13 @@ class ValueTable:
         # heaps is the vector of heapsizes 
         
         biggestHeap = max(heaps)
+        numberOfHeaps = len(heaps)
 
         # first choose heap with non-zero size
-        nonZeroHeaps = np.arange(3) [heaps != 0]
+        nonZeroHeaps = np.arange(numberOfHeaps) [heaps != 0]
 
         # zero indexed beans numbers
-        predicted_values = np.zeros([3, biggestHeap]) * np.nan
+        predicted_values = np.zeros([numberOfHeaps, biggestHeap]) * np.nan
         
         # zero indexed
         for heapnumber in nonZeroHeaps:
