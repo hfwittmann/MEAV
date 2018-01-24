@@ -7,4 +7,4 @@ Value (using the value approach, as opposed to Q-networks)
 
 See blog post:
 
-https://arthought.com/xxx
+https://arthought.com/game-of-nim-reinforcement-learning
